@@ -1,122 +1,105 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+// import { useState } from "react";
+import "./App.css";
+import headerstyles from "./Header.module.css";
+import logoIcon from "./assets/logo.png";
+import footerstyles from "./Footer.module.css";
+import { Link } from "react-router-dom";
+import Privacy from "./Privacy";
+import FAQ from "./FAQ";
+import Addproduct from "./Addproduct";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./HomePage";
+import Login from "./Login";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
+    <header className={headerstyles.header}>
+      <div className={headerstyles.inner}>
+        <div className={headerstyles.left}>
+          <div className={headerstyles.logo}>
+            <Link to="/">
+              <img src={logoIcon} alt="판다마켓 로고" />
+            </Link>
+          </div>
+          <div className={headerstyles.title}>자유게시판</div>
+          <div className={headerstyles.title}>중고마켓</div>
         </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
+        <div className={headerstyles.login}>
+          <Link to="/Login">로그인</Link>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </div>
+    </header>
+  );
 }
 
-export default App
+function Footer() {
+  return (
+    <footer className={footerstyles.footer}>
+      <div className={footerstyles.inner}>
+        <div>©codeit - 2024</div>
+        <div className={footerstyles.footercenter}>
+          <Link to="/Privacy">Privacy Policy</Link>
+          <Link to="/FAQ">FAQ</Link>
+        </div>
+
+        <div className={footerstyles.icon}>
+          <a
+            href="https://www.facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./src/assets/ic_facebook.png" alt="페이스북" />
+          </a>
+
+          <a
+            href="https://www.twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./src/assets/ic_twitter.png" alt="트위터" />
+          </a>
+          <a
+            href="https://www.youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./src/assets/ic_youtube.png" alt="유튜브" />
+          </a>
+
+          <a
+            href="https://www.instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="./src/assets/ic_instagram.png" alt="인스타그램" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function Home() {
+  return (
+    <>
+      <Header />
+      <HomePage />
+      <Footer />
+    </>
+  );
+}
+function App() {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Privacy" element={<Privacy />} />
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/Addproduct" element={<Addproduct />} />
+        <Route path="/Login" element={<Login />} />
+      </Routes>
+    </>
+  );
+}
+
+export default App;
