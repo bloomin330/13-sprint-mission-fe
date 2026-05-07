@@ -34,7 +34,7 @@ function HomePage() {
   }, []);
 
   // 베스트 상품 4개
-  const bestProducts = products.slice(0, 4);
+  // const bestProducts = products.slice(0, 4); // 베스트 상품 주석처리
 
   // 검색
   const filteredProducts = products.filter((product) =>
@@ -51,7 +51,8 @@ function HomePage() {
   });
 
   // 페이지네이션
-  const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE);
+  const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE); // 현재 상품까지 나오게
+  // const totalPages = 5; // 5페이지 까지 나오게
 
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
 

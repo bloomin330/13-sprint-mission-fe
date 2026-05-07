@@ -10,6 +10,7 @@ import Addproduct from "./Addproduct";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import Login from "./Login";
+import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
@@ -22,7 +23,16 @@ function Header() {
             </Link>
           </div>
           <div className={headerstyles.title}>자유게시판</div>
-          <div className={headerstyles.title}>중고마켓</div>
+          <NavLink
+            to="/items"
+            className={({ isActive }) =>
+              isActive
+                ? `${headerstyles.title} ${headerstyles.active}`
+                : headerstyles.title
+            }
+          >
+            중고마켓
+          </NavLink>
         </div>
         <div className={headerstyles.login}>
           <Link to="/Login">로그인</Link>
@@ -79,7 +89,7 @@ function Footer() {
   );
 }
 
-function Home() {
+function Items() {
   return (
     <>
       <Header />
@@ -92,7 +102,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/items" element={<Items />} />
         <Route path="/Privacy" element={<Privacy />} />
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/Addproduct" element={<Addproduct />} />
