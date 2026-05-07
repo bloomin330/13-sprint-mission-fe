@@ -51,8 +51,7 @@ function HomePage() {
   });
 
   // 페이지네이션
-  // const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE);
-  const totalPages = 5;
+  const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE);
 
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
 
@@ -63,7 +62,7 @@ function HomePage() {
 
   return (
     <main className={styles.container}>
-      {/* 베스트 상품 */}
+      {/* 베스트 상품
       <section className={styles.section}>
         <h2>베스트 상품</h2>
 
@@ -72,7 +71,7 @@ function HomePage() {
             <ProductCard key={product.id} item={product} />
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* 판매 상품 */}
       <section className={styles.section}>
