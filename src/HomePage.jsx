@@ -6,25 +6,23 @@ import styles from "./HomePage.module.css";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
-
   const [search, setSearch] = useState("");
-
   const [sort, setSort] = useState("recent");
-
   const [currentPage, setCurrentPage] = useState(1);
-
   const PRODUCTS_PER_PAGE = 10;
 
   useEffect(() => {
     async function getProducts() {
       try {
         const response = await fetch(
-          "https://panda-market-api.vercel.app/products",
+          // "https://panda-market-api.vercel.app/products",
+          "http://localhost:3000/products",
         );
 
         const data = await response.json();
 
-        setProducts(data.list);
+        // setProducts(data.list);
+        setProducts(data);
       } catch (error) {
         console.error(error);
       }
@@ -53,9 +51,7 @@ function HomePage() {
   // 페이지네이션
   const totalPages = Math.ceil(sortedProducts.length / PRODUCTS_PER_PAGE); // 현재 상품까지 나오게
   // const totalPages = 5; // 5페이지 까지 나오게
-
   const startIndex = (currentPage - 1) * PRODUCTS_PER_PAGE;
-
   const currentProducts = sortedProducts.slice(
     startIndex,
     startIndex + PRODUCTS_PER_PAGE,
@@ -93,7 +89,7 @@ function HomePage() {
             />
 
             {/* 등록 버튼 */}
-            <Link to="/addproduct">
+            <Link to="/registration">
               <button className={styles.addButton}>상품 등록하기</button>
             </Link>
 
@@ -116,7 +112,7 @@ function HomePage() {
         {/* 상품 리스트 */}
         <div className={styles.productGrid}>
           {currentProducts.map((product) => (
-            <ProductCard key={product.id} item={product} />
+            <ProductCard key={product._id} item={product} />
           ))}
         </div>
 

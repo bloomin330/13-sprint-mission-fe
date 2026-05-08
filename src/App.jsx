@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import "./App.css";
 import headerstyles from "./Header.module.css";
 import logoIcon from "./assets/logo.png";
@@ -6,11 +5,12 @@ import footerstyles from "./Footer.module.css";
 import { Link } from "react-router-dom";
 import Privacy from "./Privacy";
 import FAQ from "./FAQ";
-import Addproduct from "./Addproduct";
+// import Addproduct from "./Addproduct";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import Login from "./Login";
 import { NavLink } from "react-router-dom";
+import Registration from "./Registration";
 
 function Header() {
   return (
@@ -98,6 +98,17 @@ function Items() {
     </>
   );
 }
+
+function RegistrationPage() {
+  return (
+    <>
+      <Header />
+      <Registration />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   return (
     <>
@@ -105,7 +116,7 @@ function App() {
         <Route path="/items" element={<Items />} />
         <Route path="/Privacy" element={<Privacy />} />
         <Route path="/FAQ" element={<FAQ />} />
-        <Route path="/Addproduct" element={<Addproduct />} />
+        <Route path="/Registration" element={<RegistrationPage />} />
         <Route path="/Login" element={<Login />} />
       </Routes>
     </>
