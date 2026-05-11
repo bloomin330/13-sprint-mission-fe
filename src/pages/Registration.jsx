@@ -1,4 +1,4 @@
-import styles from "./Registration.module.css";
+import styles from "../style/Registration.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,13 +17,16 @@ export default function Registration() {
       tags: tags.split(","),
     };
     try {
-      const response = await fetch("http://localhost:3000/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://sprint-mission-5.onrender.com/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(productData),
         },
-        body: JSON.stringify(productData),
-      });
+      );
 
       const result = await response.json();
 

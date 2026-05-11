@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import ProductCard from "./ProductCard";
-import styles from "./HomePage.module.css";
+import ProductCard from "../components/ProductCard";
+import styles from "../style/HomePage.module.css";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -15,8 +15,8 @@ function HomePage() {
     async function getProducts() {
       try {
         const response = await fetch(
-          // "https://panda-market-api.vercel.app/products",
-          "http://localhost:3000/products",
+          "https://sprint-mission-5.onrender.com/products",
+          // "http://localhost:3000/products",
         );
 
         const data = await response.json();

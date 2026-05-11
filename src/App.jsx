@@ -1,16 +1,15 @@
-import "./App.css";
-import headerstyles from "./Header.module.css";
+import "./style/App.css";
+import headerstyles from "./style/Header.module.css";
 import logoIcon from "./assets/logo.png";
-import footerstyles from "./Footer.module.css";
+import footerstyles from "./style/Footer.module.css";
 import { Link } from "react-router-dom";
-import Privacy from "./Privacy";
-import FAQ from "./FAQ";
-// import Addproduct from "./Addproduct";
+import Privacy from "./pages/Privacy";
+import FAQ from "./pages/FAQ";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./HomePage";
-import Login from "./Login";
+import HomePage from "./pages/HomePage";
+import Login from "./pages/Login";
 import { NavLink } from "react-router-dom";
-import Registration from "./Registration";
+import Registration from "./pages/Registration";
 
 function Header() {
   return (
