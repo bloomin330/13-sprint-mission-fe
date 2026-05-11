@@ -117,7 +117,18 @@ function App() {
         <Route path="/FAQ" element={<FAQ />} />
         <Route path="/Registration" element={<RegistrationPage />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/" element={<Main />} />
       </Routes>
+    </>
+  );
+}
+
+function Main() {
+  return (
+    <>
+      <Header />
+      메인페이지
+      <Footer />
     </>
   );
 }
