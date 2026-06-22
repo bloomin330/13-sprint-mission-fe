@@ -368,7 +368,7 @@ export default function BoardDetailPage() {
           {/* 기존 버튼과 아이콘을 지우고 이미지로 대체 */}
           <img
             src="/btn_medium.png"
-            alt="목록으로 돌아가기"
+            alt="목록으로 돌아가기 버튼"
             className="cursor-pointer object-contain"
           />
         </Link>
