@@ -1,8 +1,12 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
   return (
     <header className="w-full bg-[#FFF] border-b border-[#DFDFDF] sticky top-0 z-50">
       <div className="max-w-[1920px] mx-auto px-[200px] h-70px flex items-center justify-between">
@@ -21,13 +25,23 @@ export default function Header() {
           <nav className="flex items-center">
             <Link
               href="/boards"
-              className="w-[109px] h-[69px] flex items-center justify-center text-[#3692FF] text-[18px] font-bold leading-none cursor-pointer"
+              className={`w-[109px] h-[69px] flex items-center justify-center text-[18px] font-bold leading-none cursor-pointer
+              ${
+                pathname.startsWith("/boards")
+                  ? "text-[#3692FF]"
+                  : "text-[#4B5563]"
+              }`}
             >
               자유게시판
             </Link>
             <Link
               href="/market"
-              className="w-[109px] h-[69px] flex items-center justify-center text-[#4B5563] text-[18px] font-bold leading-none cursor-pointer"
+              className={`w-[109px] h-[69px] flex items-center justify-center text-[18px] font-bold leading-none cursor-pointer"
+                ${
+                  pathname.startsWith("/market")
+                    ? "text-[#3692FF]"
+                    : "text-[#4B5563]"
+                }`}
             >
               중고마켓
             </Link>
