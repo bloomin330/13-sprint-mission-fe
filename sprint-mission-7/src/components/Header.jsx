@@ -4,9 +4,9 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="w-full bg-white border-b border-[#DFDFDF] sticky top-0 z-50">
-      <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-6 md:gap-8">
+    <header className="w-full bg-[#FFF] border-b border-[#DFDFDF] sticky top-0 z-50">
+      <div className="max-w-[1920px] mx-auto px-[200px] h-70px flex items-center justify-between">
+        <div className="flex items-center gap-[32px]">
           <Link href="/boards" className="flex items-center shrink-0">
             <Image
               src="/logo.png"
@@ -34,7 +34,7 @@ export default function Header() {
           </nav>
         </div>
 
-        <button className="inline-flex items-center justify-center h-[42px] px-[23px] bg-[#3692FF] text-white text-sm font-semibold rounded-lg tracking-wide shadow-sm cursor-pointer ">
+        <button className="inline-flex items-center justify-center w-[88px] h-[42px] bg-[#3692FF] text-[16px] text-[#FFFFFF] font-semibold rounded-lg cursor-pointer ">
           로그인
         </button>
       </div>
