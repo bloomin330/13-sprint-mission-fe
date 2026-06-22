@@ -3,22 +3,15 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex w-full h-[160px] pt-[32px] pb-[32px] pl-[400px] pr-[400px] flex-col items-start gap-[10px] bg-[#111827] box-border text-[#6B7280]">
-      <div className="flex w-full items-center justify-between mt-auto mb-auto">
-        <div className="text-[15px] font-normal select-none">
+    <footer className="flex w-full h-[160px] pt-[32px] pb-[32px] pl-[400px] pr-[400px] flex-col items-start gap-[10px] bg-[#111827] box-border text-[#E5E7EB]">
+      <div className="flex w-full items-start justify-between">
+        <div className="text-[16px] font-normal text-[#9CA3AF]">
           ©codeit - 2024
         </div>
 
-        <div className="flex gap-[32px] text-[15px] font-normal">
-          <Link
-            href="/privacy"
-            className="hover:text-gray-300 transition-colors"
-          >
-            Privacy Policy
-          </Link>
-          <Link href="/faq" className="hover:text-gray-300 transition-colors">
-            FAQ
-          </Link>
+        <div className="flex gap-[30px] text-[16px] font-normal">
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/faq">FAQ</Link>
         </div>
 
         <div className="flex items-center gap-[12px]">
